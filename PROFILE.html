@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mounika Silla — Senior Solutions Analyst, Developer, Data Analyst and Product Owner." />
+  <title>Mounika Silla — Senior Solutions Analyst</title>
+
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --surface: rgba(255,255,255,.72);
+      --surface-solid: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --line: rgba(0,0,0,.08);
+      --accent: #0071e3;
+      --accent-soft: #e8f2ff;
+      --dark: #111113;
+      --max: 1180px;
+      --radius: 28px;
+      --shadow: 0 20px 60px rgba(0,0,0,.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 5%, rgba(0,113,227,.10), transparent 30%),
+        radial-gradient(circle at 90% 15%, rgba(120,80,255,.08), transparent 28%),
+        var(--bg);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    /* ---------------- NAV ---------------- */
+
+    nav {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      background: rgba(245,245,247,.72);
+      backdrop-filter: blur(22px) saturate(180%);
+      -webkit-backdrop-filter: blur(22px) saturate(180%);
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+
+    .nav-inner {
+      width: min(calc(100% - 40px), var(--max));
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 650;
+      font-size: 17px;
+      letter-spacing: -.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+      min-height: 92vh;
+      padding-top: 64px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      padding: 100px 0 80px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(0,113,227,.10);
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: clamp(58px, 9vw, 116px);
+      line-height: .92;
+      letter-spacing: -.075em;
+      font-weight: 700;
+    }
+
+    .hero-title {
+      margin-top: 25px;
+      font-size: clamp(22px, 3vw, 34px);
+      color: var(--muted);
+      letter-spacing: -.035em;
+      font-weight: 500;
+    }
+
+    .hero-description {
+      max-width: 680px;
+      margin-top: 30px;
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      margin-top: 38px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: white;
+      background: var(--accent);
+      box-shadow: 0 8px 25px rgba(0,113,227,.22);
+    }
+
+    .button-primary:hover {
+      box-shadow: 0 12px 30px rgba(0,113,227,.30);
+    }
+
+    .button-secondary {
+      background: rgba(255,255,255,.7);
+      border: 1px solid var(--line);
+    }
+
+    /* ---------------- INTRO STRIP ---------------- */
+
+    .intro-strip {
+      padding: 35px 0 90px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stat {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 40px rgba(0,0,0,.04);
+      backdrop-filter: blur(20px);
+    }
+
+    .stat-number {
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -.055em;
+    }
+
+    .stat-label {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 50px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(40px, 6vw, 68px);
+      letter-spacing: -.06em;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .section-description {
+      max-width: 640px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    /* ---------------- ABOUT ---------------- */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .about-main,
+    .about-side {
+      background: var(--surface-solid);
+      border-radius: var(--radius);
+      padding: 42px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,.04);
+    }
+
+    .about-main p {
+      color: #424245;
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .about-main p + p {
+      margin-top: 22px;
+    }
+
+    .about-side {
+      background:
+        linear-gradient(145deg, #ffffff, #edf5ff);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .quote-mark {
+      font-size: 72px;
+      line-height: .7;
+      color: var(--accent);
+      opacity: .5;
+    }
+
+    .about-side h3 {
+      font-size: 26px;
+      letter-spacing: -.035em;
+      margin-top: 25px;
+    }
+
+    .about-side p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* ---------------- EXPERIENCE ---------------- */
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .experience-card {
+      background: var(--surface-solid);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px 38px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 35px;
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .experience-date {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .experience-company {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 650;
+      margin-bottom: 5px;
+    }
+
+    .experience-role {
+      font-size: 26px;
+      font-weight: 650;
+      letter-spacing: -.035em;
+    }
+
+    .experience-location {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ---------------- CAPABILITIES ---------------- */
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .capability-card {
+      min-height: 250px;
+      padding: 35px;
+      border-radius: var(--radius);
+      background: var(--dark);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .capability-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.07);
+      right: -80px;
+      bottom: -90px;
+    }
+
+    .capability-number {
+      font-size: 14px;
+      color: rgba(255,255,255,.5);
+      font-weight: 600;
+    }
+
+    .capability-card h3 {
+      margin-top: 65px;
+      font-size: 28px;
+      letter-spacing: -.04em;
+    }
+
+    .capability-card p {
+      margin-top: 8px;
+      color: rgba(255,255,255,.58);
+      max-width: 390px;
+    }
+
+    /* ---------------- SKILLS ---------------- */
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 40px;
+    }
+
+    .skills-intro {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-content: flex-start;
+    }
+
+    .skill {
+      padding: 13px 18px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      font-size: 15px;
+      font-weight: 550;
+      transition: all .2s ease;
+    }
+
+    .skill:hover {
+      background: var(--accent-soft);
+      border-color: rgba(0,113,227,.2);
+      transform: translateY(-2px);
+    }
+
+    /* ---------------- EDUCATION ---------------- */
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .education-card {
+      background: white;
+      padding: 38px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+    }
+
+    .education-card .year {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .education-card h3 {
+      margin-top: 28px;
+      font-size: 25px;
+      letter-spacing: -.035em;
+    }
+
+    .education-card p {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    /* ---------------- CERTIFICATIONS ---------------- */
+
+    .certifications {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .cert {
+      padding: 28px;
+      border-radius: 24px;
+      background: white;
+      border: 1px solid var(--line);
+    }
+
+    .cert-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .cert h3 {
+      font-size: 18px;
+      letter-spacing: -.025em;
+    }
+
+    .cert p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    /* ---------------- CONTACT ---------------- */
+
+    .contact {
+      padding-bottom: 70px;
+    }
+
+    .contact-card {
+      padding: 70px;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(0,113,227,.18), transparent 30%),
+        #111113;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .contact-card h2 {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .contact-card p {
+      max-width: 600px;
+      margin: 22px auto 0;
+      color: rgba(255,255,255,.6);
+      font-size: 17px;
+    }
+
+    .contact-links {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.1);
+      color: white;
+      font-size: 14px;
+      transition: background .2s ease;
+    }
+
+    .contact-link:hover {
+      background: rgba(255,255,255,.18);
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      padding: 35px 0 45px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* ---------------- ANIMATION ---------------- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 110px 0 70px;
+      }
+
+      .intro-grid,
+      .about-grid,
+      .capability-grid,
+      .skills-layout,
+      .education-grid,
+      .certifications {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-card {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .experience-date {
+        order: 2;
+      }
+
+      .contact-card {
+        padding: 50px 25px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container,
+      .nav-inner {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      h1 {
+        font-size: 60px;
+      }
+
+      .hero-description {
+        font-size: 17px;
+      }
+
+      .about-main,
+      .about-side,
+      .experience-card {
+        padding: 28px;
+      }
+
+      .stat {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="brand">Mounika Silla</a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content reveal">
+
+          <div class="eyebrow">
+            Senior Solutions Analyst
+          </div>
+
+          <h1>
+            Turning data<br />
+            into direction.
+          </h1>
+
+          <div class="hero-title">
+            Developer · Data Analyst · Product Owner
+          </div>
+
+          <p class="hero-description">
+            7 years of cumulative experience across software development,
+            business analytics, data visualization and product ownership,
+            with a focus on turning complex information into useful
+            business solutions.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#experience">
+              Explore my work
+            </a>
+
+            <a class="button button-secondary"
+               href="mailto:mounika.s2012@gmail.com">
+              Get in touch
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK FACTS -->
+    <section class="intro-strip">
+      <div class="container">
+        <div class="intro-grid">
+
+          <div class="stat reveal">
+            <div class="stat-number">7+</div>
+            <div class="stat-label">Years of cumulative experience</div>
+          </div>
+
+          <div class="stat reveal">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Core professional disciplines</div>
+          </div>
+
+          <div class="stat reveal">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Advanced analytics environments</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="section-kicker">About</div>
+          <h2>Analytical by nature.<br />Product-minded by design.</h2>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-main reveal">
+            <p>
+              I have 7 years of cumulative experience as a Developer,
+              Data Analyst and Product Owner. My professional path is
+              centered around business analytics, technology and
+              translating data into meaningful insights.
+            </p>
+
+            <p>
+              I am certified in Business Intelligence and Analytics and
+              hold a master's degree in Management Information Systems,
+              with a major in Business Information Technology.
+            </p>
+
+            <p>
+              My experience includes data mining analytics, data
+              visualization and dashboard development using Tableau,
+              Spotfire, SAS, R, SQL and Python.
+            </p>
+          </div>
+
+          <div class="about-side reveal">
+            <div>
+              <div class="quote-mark">“</div>
+              <h3>Building clarity from complexity.</h3>
+              <p>
+                Experienced in building models and statistical models,
+                including regression and linear models.
+              </p>
+            </div>
+
+            <p>
+              Based in Germantown, Tennessee.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="section-kicker">Experience</div>
+          <h2>A career built<br />across technology.</h2>
+          <p class="section-description">
+            From data analytics and research to full-stack development
+            and solutions analysis.
+          </p>
+        </div>
+
+        <div class="experience-list">
+
+          <article class="experience-card reveal">
+            <div class="experience-date">
+              June 2021 — Present<br />
+              5 years 4 months
+            </div>
+
+            <div>
+              <div class="experience-company">FedEx Services</div>
+              <div class="experience-role">Senior Solutions Analyst</div>
+              <div class="experience-location">
+                Memphis, Tennessee, United States
+              </div>
+            </div>
+          </article>
+
+          <article class="experience-card reveal">
+            <div class="experience-date">
+              March 2019 — August 2021<br />
+              2 years 6 months
+            </div>
+
+            <div>
+              <div class="experience-company">FedEx Services</div>
+              <div class="experience-role">Full Stack Developer</div>
+            </div>
+          </article>
+
+          <article class="experience-card reveal">
+            <div class="experience-date">
+              August 2017 — December 2018<br />
+              1 year 5 months
+            </div>
+
+            <div>
+              <div class="experience-company">
+                University of Memphis Graduate School
+              </div>
+              <div class="experience-role">Research Assistant</div>
+            </div>
+          </article>
+
+          <article class="experience-card reveal">
+            <div class="experience-date">
+              August 2017 — December 2017<br />
+              5 months
+            </div>
+
+            <div>
+              <div class="experience-company">
+                University of Memphis Graduate School
+              </div>
+              <div class="experience-role">Teaching Assistant</div>
+            </div>
+          </article>
+
+          <article class="experience-card reveal">
+            <div class="experience-date">
+              June 2018 — August 2018<br />
+              3 months
+            </div>
+
+            <div>
+              <div class="experience-company">FedEx Freight</div>
+              <div class="experience-role">Data Analyst Intern</div>
+              <div class="experience-location">
+                Greater Memphis Area
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section>
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="section-kicker">What I do</div>
+          <h2>Technology with<br />business context.</h2>
+        </div>
+
+        <div class="capability-grid">
+
+          <div class="capability-card reveal">
+            <div class="capability-number">01</div>
+            <h3>Data Analytics</h3>
+            <p>
+              Business analytics, data mining and statistical modeling
+              to uncover useful insights.
+            </p>
+          </div>
+
+          <div class="capability-card reveal">
+            <div class="capability-number">02</div>
+            <h3>Data Visualization</h3>
+            <p>
+              Creating dashboards and visualizations with Tableau,
+              Spotfire and other analytical tools.
+            </p>
+          </div>
+
+          <div class="capability-card reveal">
+            <div class="capability-number">03</div>
+            <h3>Software Development</h3>
+            <p>
+              Full-stack development experience combined with
+              analytical and business understanding.
+            </p>
+          </div>
+
+          <div class="capability-card reveal">
+            <div class="capability-number">04</div>
+            <h3>Product Ownership</h3>
+            <p>
+              Bridging technology, business requirements and
+              product-focused delivery.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="section-kicker">Skills</div>
+          <h2>A versatile<br />technical toolkit.</h2>
+        </div>
+
+        <div class="skills-layout">
+
+          <div class="skills-intro reveal">
+            <p>
+              My background combines analytical thinking, technical
+              development and leadership. The tools and capabilities
+              below reflect the experience described in my professional
+              profile.
+            </p>
+          </div>
+
+          <div class="skill-cloud reveal">
+
+            <span class="skill">Python</span>
+            <span class="skill">SQL</span>
+            <span class="skill">R</span>
+            <span class="skill">SAS</span>
+            <span class="skill">SAS Base</span>
+            <span class="skill">Tableau</span>
+            <span class="skill">Spotfire</span>
+            <span class="skill">Data Visualization</span>
+            <span class="skill">Data Mining</span>
+            <span class="skill">Statistical Modeling</span>
+            <span class="skill">Regression</span>
+            <span class="skill">Linear Models</span>
+            <span class="skill">Business Analytics</span>
+            <span class="skill">Leadership</span>
+            <span class="skill">Microsoft Word</span>
+            <span class="skill">Microsoft PowerPoint</span>
+            <span class="skill">Product Ownership</span>
+            <span class="skill">Full Stack Development</span>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="section-kicker">Education</div>
+          <h2>Strong foundations.<br />Continuous learning.</h2>
+        </div>
+
+        <div class="education-grid">
+
+          <div class="education-card reveal">
+            <div class="year">2017 — 2018</div>
+            <h3>Master's Degree</h3>
+            <p>
+              Management Information Systems, General
+            </p>
+            <p>
+              The University of Memphis
+            </p>
+          </div>
+
+          <div class="education-card reveal">
+            <div class="year">2012 — 2016</div>
+            <h3>Bachelor's Degree</h3>
+            <p>
+              Computer Science
+            </p>
+            <p>
+              Jawaharlal Nehru Technological University
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section>
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="section-kicker">Certifications</div>
+          <h2>Credentials that<br />keep evolving.</h2>
+        </div>
+
+        <div class="certifications">
+
+          <div class="cert reveal">
+            <div class="cert-icon">✓</div>
+            <h3>SAFe 5 Practitioner</h3>
+            <p>Agile / SAFe certification</p>
+          </div>
+
+          <div class="cert reveal">
+            <div class="cert-icon">◆</div>
+            <h3>Business Intelligence & Analytics</h3>
+            <p>Professional certification</p>
+          </div>
+
+          <div class="cert reveal">
+            <div class="cert-icon">A</div>
+            <h3>Spanish Diploma</h3>
+            <p>Language certification</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section>
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="section-kicker">Beyond technology</div>
+          <h2>Languages & perspective.</h2>
+        </div>
+
+        <div class="skill-cloud reveal">
+          <span class="skill">English</span>
+          <span class="skill">Spanish</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="contact-card reveal">
+
+          <h2>
+            Let's turn the next complex problem into something clear.
+          </h2>
+
+          <p>
+            Interested in connecting? Reach out by email or find me
+            on LinkedIn.
+          </p>
+
+          <div class="contact-links">
+            <a
+              class="contact-link"
+              href="mailto:mounika.s2012@gmail.com">
+              mounika.s2012@gmail.com
+            </a>
+
+            <a
+              class="contact-link"
+              href="https://www.linkedin.com/in/mounika-silla-017645154"
+              target="_blank"
+              rel="noopener noreferrer">
+              LinkedIn ↗
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 Mounika Silla</div>
+      <div>Senior Solutions Analyst · Tennessee</div>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      Lightweight reveal animation.
+      No external libraries required.
+    */
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
+</html>
